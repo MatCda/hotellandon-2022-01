@@ -8,21 +8,20 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelLandon.Data;
 using HotelLandon.Models;
-using HotelLandon.Repository;
 
-namespace HotelLandon.MvcRazor.Pages.Rooms
+namespace HotelLandon.MvcRazor.Pages.Reservations
 {
     public class EditModel : PageModel
     {
-        private readonly IRepositoryBase<Room> repository;
+        private readonly HotelLandon.Data.HotelLandonContext _context;
 
-        public EditModel(IRepositoryBase<Room> repository)
+        public EditModel(HotelLandon.Data.HotelLandonContext context)
         {
-            this.repository = repository;
+            _context = context;
         }
 
         [BindProperty]
-        public Room Room { get; set; }
+        public Reservation Reservation { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -31,8 +30,9 @@ namespace HotelLandon.MvcRazor.Pages.Rooms
                 return NotFound();
             }
 
-            Room = await repository.GetAsync(id.Value);
-            if (Room == null)
+            Reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (Reservation == null)
             {
                 return NotFound();
             }
@@ -48,7 +48,7 @@ namespace HotelLandon.MvcRazor.Pages.Rooms
                 return Page();
             }
 
-            _context.Attach(Room).State = EntityState.Modified;
+            _context.Attach(Reservation).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace HotelLandon.MvcRazor.Pages.Rooms
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RoomExists(Room.Id))
+                if (!ReservationExists(Reservation.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace HotelLandon.MvcRazor.Pages.Rooms
             return RedirectToPage("./Index");
         }
 
-        private bool RoomExists(int id)
+        private bool ReservationExists(int id)
         {
-            return _context.Rooms.Any(e => e.Id == id);
+            return _context.Reservations.Any(e => e.Id == id);
         }
     }
 }
