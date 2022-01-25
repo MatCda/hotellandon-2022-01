@@ -48,30 +48,30 @@ namespace HotelLandon.MvcRazor.Pages.Rooms
                 return Page();
             }
 
-            _context.Attach(Room).State = EntityState.Modified;
+            await repository.UpdateAsync(Room,Room.Id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!RoomExists(Room.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!RoomExists(Room.Id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Rooms/Index");
         }
 
-        private bool RoomExists(int id)
-        {
-            return _context.Rooms.Any(e => e.Id == id);
-        }
+        //private bool RoomExists(int id)
+        //{
+        //    return _context.Rooms.Any(e => e.Id == id);
+        //}
     }
 }
