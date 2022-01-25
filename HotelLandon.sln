@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.32014.148
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelLandon.Data", "HotelLandon.Data\HotelLandon.Data.csproj", "{9CEFDB9A-0128-432E-8D09-0B5D5B5D2925}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelLandon.Repository", "H
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelLandon.Api", "HotelLandon.Api\HotelLandon.Api.csproj", "{FEDCFA09-17C3-404F-99DF-0EE975554BB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelLandon.MvcRazor", "HotelLandon.MvcRazor\HotelLandon.MvcRazor.csproj", "{D9750E9E-D6C6-4728-92E3-5BE8450127BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HotelLandon.MvcRazor", "HotelLandon.MvcRazor\HotelLandon.MvcRazor.csproj", "{D8233344-EF96-425E-9097-33561350BB07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,23 +99,23 @@ Global
 		{FEDCFA09-17C3-404F-99DF-0EE975554BB4}.Release|x64.Build.0 = Release|Any CPU
 		{FEDCFA09-17C3-404F-99DF-0EE975554BB4}.Release|x86.ActiveCfg = Release|Any CPU
 		{FEDCFA09-17C3-404F-99DF-0EE975554BB4}.Release|x86.Build.0 = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|x64.Build.0 = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Debug|x86.Build.0 = Debug|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|x64.ActiveCfg = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|x64.Build.0 = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|x86.ActiveCfg = Release|Any CPU
-		{D9750E9E-D6C6-4728-92E3-5BE8450127BE}.Release|x86.Build.0 = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|x64.Build.0 = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Debug|x86.Build.0 = Debug|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|x64.ActiveCfg = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|x64.Build.0 = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|x86.ActiveCfg = Release|Any CPU
+		{D8233344-EF96-425E-9097-33561350BB07}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DFC31F19-C4FD-4FCD-86B6-3DAA82384CD6}
+		SolutionGuid = {F0801A78-F5D8-4DA6-8E56-41ACE75C495A}
 	EndGlobalSection
 EndGlobal
