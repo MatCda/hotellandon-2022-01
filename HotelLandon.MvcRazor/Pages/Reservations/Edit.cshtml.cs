@@ -8,16 +8,17 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HotelLandon.Data;
 using HotelLandon.Models;
+using HotelLandon.Repository;
 
 namespace HotelLandon.MvcRazor.Pages.Reservations
 {
     public class EditModel : PageModel
     {
-        private readonly HotelLandon.Data.HotelLandonContext _context;
+        private readonly IRepositoryBase<Reservation> repository;
 
-        public EditModel(HotelLandon.Data.HotelLandonContext context)
+        public EditModel(IRepositoryBase<Reservation> repository)
         {
-            _context = context;
+            this.repository = repository;
         }
 
         [BindProperty]
@@ -30,7 +31,7 @@ namespace HotelLandon.MvcRazor.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.Id == id);
+            Reservation = await repository.GetAsync(id.Value);
 
             if (Reservation == null)
             {
@@ -48,30 +49,30 @@ namespace HotelLandon.MvcRazor.Pages.Reservations
                 return Page();
             }
 
-            _context.Attach(Reservation).State = EntityState.Modified;
+            await repository.UpdateAsync(Reservation, Reservation.Id);
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ReservationExists(Reservation.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!ReservationExists(Reservation.Id))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return RedirectToPage("./Index");
         }
 
-        private bool ReservationExists(int id)
-        {
-            return _context.Reservations.Any(e => e.Id == id);
-        }
+        //private bool ReservationExists(int id)
+        //{
+        //    return _context.Reservations.Any(e => e.Id == id);
+        //}
     }
 }

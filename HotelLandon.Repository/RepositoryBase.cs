@@ -12,7 +12,7 @@ namespace HotelLandon.Repository
     {
         private HotelLandonContext context;
 
-        public RepositoryBase() => context = new HotelLandonContext();
+        public RepositoryBase(HotelLandonContext context) => this.context = context;
 
         public Task<List<TEntity>> GetAllAsync() => context.Set<TEntity>().ToListAsync();
 

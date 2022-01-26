@@ -30,7 +30,7 @@ namespace HotelLandon.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<HotelLandonContext>();
-            services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
+            //services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

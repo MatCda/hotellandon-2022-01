@@ -26,8 +26,9 @@ namespace HotelLandon.MvcRazor
             services.AddRazorPages();
             //services.AddMvc();
             services.AddDbContext<HotelLandonContext>();
-            services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
-            services.AddTransient<IRepositoryBase<Room>>(_ => new RepositoryBase<Room>());
+            //services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
+            //services.AddTransient<IRepositoryBase<Room>>(_ => new RepositoryBase<Room>());
+            //services.AddTransient<IRepositoryBase<Reservation>>(_ => new RepositoryBase<Reservation>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

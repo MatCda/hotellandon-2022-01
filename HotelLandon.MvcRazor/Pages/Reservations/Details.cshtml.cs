@@ -7,16 +7,17 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HotelLandon.Data;
 using HotelLandon.Models;
+using HotelLandon.Repository;
 
 namespace HotelLandon.MvcRazor.Pages.Reservations
 {
     public class DetailsModel : PageModel
     {
-        private readonly HotelLandon.Data.HotelLandonContext _context;
+        private readonly IRepositoryBase<Reservation> repository;
 
-        public DetailsModel(HotelLandon.Data.HotelLandonContext context)
+        public DetailsModel(IRepositoryBase<Reservation> repository)
         {
-            _context = context;
+            this.repository = repository;
         }
 
         public Reservation Reservation { get; set; }
@@ -28,7 +29,8 @@ namespace HotelLandon.MvcRazor.Pages.Reservations
                 return NotFound();
             }
 
-            Reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.Id == id);
+            //Reservation = await _context.Reservations.FirstOrDefaultAsync(m => m.Id == id);
+            Reservation = await repository.GetAsync(id.Value);
 
             if (Reservation == null)
             {

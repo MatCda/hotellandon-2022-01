@@ -7,23 +7,24 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using HotelLandon.Data;
 using HotelLandon.Models;
+using HotelLandon.Repository;
 
 namespace HotelLandon.MvcRazor.Pages.Reservations
 {
     public class IndexModel : PageModel
     {
-        private readonly HotelLandon.Data.HotelLandonContext _context;
+        private readonly IRepositoryBase<Reservation> repository;
 
-        public IndexModel(HotelLandon.Data.HotelLandonContext context)
+        public IndexModel(IRepositoryBase<Reservation> repository)
         {
-            _context = context;
+            this.repository = repository;
         }
 
-        public IList<Reservation> Reservation { get;set; }
+        public IList<Reservation> Reservations { get;set; }
 
         public async Task OnGetAsync()
         {
-            Reservation = await _context.Reservations.ToListAsync();
+            Reservations = await repository.GetAllAsync();
         }
     }
 }
