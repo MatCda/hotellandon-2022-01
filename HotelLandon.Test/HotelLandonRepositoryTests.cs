@@ -2,6 +2,7 @@
 using HotelLandon.Models;
 using HotelLandon.Repository;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -52,13 +53,20 @@ namespace HotelLandon.Test
         //}
 
         [Fact]
-        public async Task Blbla()
+        public async Task Ajout()
         {
             //Arrange
-
+            int count = (await repository.GetAllAsync()).Count;
+            Customer toto = new ()
+            {
+                FirstName = "Toto",
+                LastName = "Tutu",
+                BirthDate = DateTime.Now,
+            };
             //Act
-
+            var items = await repository.AddAsync(toto);
             //Assert
+            Assert.Equal(count + 1, count + items);
         }
 
     }
