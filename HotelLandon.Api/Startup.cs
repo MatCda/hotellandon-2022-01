@@ -14,6 +14,7 @@ using Microsoft.OpenApi.Models;
 using HotelLandon.Data;
 using HotelLandon.Models;
 using HotelLandon.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelLandon.Api
 {
@@ -29,8 +30,15 @@ namespace HotelLandon.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<HotelLandonContext>();
+            //services.AddDbContext<HotelLandonContext>();
             //services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
+            string connectionString = Configuration.GetSection("HotelLandonDatabase").Value;
+            services.AddDbContext<HotelLandonContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+            });
+            services.AddTransient<IRepositoryBase<Customer>, RepositoryBase<Customer>>();
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

@@ -2,6 +2,7 @@
 using HotelLandon.Models;
 using HotelLandon.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -44,5 +45,21 @@ namespace HotelLandon.Test
             //Assert
             Assert.Equal(count, items.Count);
         }
+        //[Fact]
+        //public async Task FindPersons_ReturnsSomeItems()
+        //{
+        //    (await repository.GetAllAsync()).Where(e => e.Id == 1);
+        //}
+
+        [Fact]
+        public async Task Blbla()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
+        }
+
     }
 }

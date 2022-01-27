@@ -36,10 +36,10 @@ namespace HotelLandon.DemoEfCore
                 BirthDate = birthDate
             };
 
-            if (customer.BirthDate < DateTime.Today.AddYears(-100))
-            {
-                throw new TropVieuxException("Impossible que tu aies plus de 100 ans");
-            }
+            //if (customer.BirthDate < DateTime.Today.AddYears(-100))
+            //{
+            //    throw new TropVieuxException("Impossible que tu aies plus de 100 ans");
+            //}
 
 
 

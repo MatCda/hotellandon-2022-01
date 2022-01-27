@@ -20,10 +20,8 @@ namespace HotelLandon.Test
 
             //Act
             
-
             //Assert
             Assert.True(customer.FirstName.Length >3);
-
         }
 
         [Fact]
@@ -55,17 +53,20 @@ namespace HotelLandon.Test
             Assert.IsType(expected, customer);
         }
 
-
-
         [Fact]
         public void Test3()
         {
             //Arrange
-            
-            
+            Customer customer = new()
+            {
+                FirstName = "Mathieu",
+                LastName = "B",
+                BirthDate = DateTime.Now,
+            };
+            var expected = typeof(string);
 
             //Act
-            
+
 
             //Assert
             

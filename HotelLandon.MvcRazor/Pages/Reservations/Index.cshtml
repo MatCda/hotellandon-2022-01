@@ -14,16 +14,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].Start)
+                @Html.DisplayNameFor(model => model.Reservations[0].Start)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reservation[0].End)
+                @Html.DisplayNameFor(model => model.Reservations[0].End)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Reservation) {
+@foreach (var item in Model.Reservations) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Start)

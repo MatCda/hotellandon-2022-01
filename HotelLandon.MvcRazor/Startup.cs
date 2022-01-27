@@ -1,8 +1,9 @@
-using HotelLandon.Data;
+﻿using HotelLandon.Data;
 using HotelLandon.Models;
 using HotelLandon.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -22,13 +23,21 @@ namespace HotelLandon.MvcRazor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Ajouter le service pour avoir des contr�leurs et des vues associ�es aux contr�leurs
             services.AddControllersWithViews();
+            // Ajouter le service pour avoir des pages (sans co
             services.AddRazorPages();
             //services.AddMvc();
-            services.AddDbContext<HotelLandonContext>();
+            //services.AddDbContext<HotelLandonContext>();
             //services.AddTransient<IRepositoryBase<Customer>>(_ => new RepositoryBase<Customer>());
             //services.AddTransient<IRepositoryBase<Room>>(_ => new RepositoryBase<Room>());
             //services.AddTransient<IRepositoryBase<Reservation>>(_ => new RepositoryBase<Reservation>());
+            services.AddDbContext<HotelLandonContext>(o => o.UseSqlServer(""));
+
+            // Injection de d�pendences, magiieeee !
+            services.AddTransient<IRepositoryBase<Customer>, RepositoryBase<Customer>>();
+            services.AddTransient<IRepositoryBase<Room>, RepositoryBase<Room>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
